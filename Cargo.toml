@@ -1,6 +1,4 @@
 [workspace]
 members = [
-    "lv2-left",
-    "lv2-oops",
-    "lv2-right",
+    "lv2-channeling",
 ]

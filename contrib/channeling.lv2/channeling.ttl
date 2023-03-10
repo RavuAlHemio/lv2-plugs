@@ -4,13 +4,13 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units:  <http://lv2plug.in/ns/extensions/units#> .
-@prefix plug:   <https://ondrahosek.com/uri/lv2/oops#> .
+@prefix plug:   <https://ondrahosek.com/uri/lv2/channeling#> .
 
-<https://ondrahosek.com/uri/lv2/left>
+<https://ondrahosek.com/uri/lv2/channeling>
     a                   lv2:Plugin ,
                         lv2:SpatialPlugin ;
-    lv2:project         <https://github.com/RavuAlHemio/lv2-left> ;
-    doap:name           "Left" ;
+    lv2:project         <https://github.com/RavuAlHemio/lv2-plugs> ;
+    doap:name           "Channeling" ;
     doap:license        <http://opensource.org/licenses/isc> ;
     lv2:optionalFeature lv2:hardRTCapable ;
 
@@ -32,4 +32,27 @@
         lv2:index   2 ;
         lv2:symbol  "out" ;
         lv2:name    "Out"
+    ] , [
+        a                   lv2:ControlPort ,
+                            lv2:InputPort ;
+        lv2:index           3 ;
+        lv2:symbol          "mode" ;
+        lv2:name            "Mode" ;
+        lv2:portProperty    lv2:integer, lv2:enumeration ;
+        lv2:default         0 ;
+        lv2:minimum         0 ;
+        lv2:maximum         3 ;
+        lv2:scalePoint [
+            rdfs:label  "Average";
+            rdf:value   0
+        ] , [
+            rdfs:label  "Left";
+            rdf:value   1
+        ] , [
+            rdfs:label  "Right";
+            rdf:value   2
+        ] , [
+            rdfs:label  "Out-of-Phase Stereo";
+            rdf:value   3
+        ]
     ] .
