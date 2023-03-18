@@ -39,6 +39,12 @@ impl Plugin for Channeling {
             } else if mode_value < 4.0 {
                 // Out-of-Phase Stereo
                 *out_frame = *left_frame - *right_frame;
+            } else if mode_value < 5.0 {
+                // Min
+                *out_frame = left_frame.min(*right_frame);
+            } else if mode_value < 6.0 {
+                // Max
+                *out_frame = left_frame.max(*right_frame);
             } else {
                 // misconfiguration
                 *out_frame = 0.0;
